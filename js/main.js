@@ -29,4 +29,25 @@ table.add(ball);
 
 var gamePlay = new GamePlay(table, goalTables, ball, players);
 
+var neuralNetworks = {
+  judit   : (new NeuralNetwork()).loadNetwork(nnPeter),
+  peter   : (new NeuralNetwork()).loadNetwork(nnPeter),
+};
+
+var demoPlayers = {};
+
+demoPlayers.peter = new NerualNetworkPlayer(gamePlay, neuralNetworks.peter, {
+  player        : 1,
+  upKeyCode     : 65,
+  downKeyCode   : 89,
+  limit         : 0.2,
+});
+
+demoPlayers.judit = new NerualNetworkPlayer(gamePlay, neuralNetworks.judit, {
+  player        : 2,
+  upKeyCode     : 38,
+  downKeyCode   : 40,
+  limit         : 0.2,
+});
+
 gamePlay.startBall();
