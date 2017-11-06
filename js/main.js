@@ -33,7 +33,7 @@ document.getElementById('start-game').onclick = function () {
   document.getElementById('layers').remove();
 
   gamePlay.resetGame();
-  gamePlay.startBall();
+  gamePlay.startGame();
 };
 
 
@@ -89,4 +89,4 @@ demoPlayers.judit = new NerualNetworkPlayer(gamePlay, neuralNetworks.judit, {
   limit         : 0.2,
 });
 
-gamePlay.startBall();
+gamePlay.startGame();

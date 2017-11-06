@@ -19,6 +19,7 @@ var GamePlay = function (Table, GoalTables, Ball, Paddles) {
   this.paddles      = Paddles;
   this.goalTables   = GoalTables;
 
+  this.isRun           = false;
   this.paddleLimits    = {};
   this.ballOutLimits   = {};
   this.goals           = {};
@@ -73,6 +74,10 @@ var GamePlay = function (Table, GoalTables, Ball, Paddles) {
   };
 
   this.startBall = function () {
+    if (!this.isRun) {
+      return;
+    }
+
     setTimeout(function () {
       storage.ballMove = setInterval(onBallMove.bind(this), config.gamePlay.ball.moveTimeStep);
     }.bind(this), config.gamePlay.ball.startDelay);
@@ -87,7 +92,14 @@ var GamePlay = function (Table, GoalTables, Ball, Paddles) {
     return this;
   };
 
+  this.startGame = function () {
+    this.isRun = true;
+    gamePlay.startBall();
+  };
+
   this.resetGame = function () {
+	this.isRun = false;
+
     // Init ball speeds
     this.ball.moveSpeed = {
       x   : 0,
