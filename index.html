@@ -19,6 +19,7 @@
 
 		<script src="js/controller.js"></script>
 		<script src="js/gameplay.js"></script>
+		<script src="js/neuralNetwork.js"></script>
 	</head>
 	<body>
 		<div id="pong-table"></div>
@@ -37,6 +38,24 @@
 					player1Logger.download('player_1_log.js');
 					player2Logger.download('player_2_log.js');
 				}
+			</script>
+			-->
+		
+		<!--- Training example --->
+			<!--
+			<script src="js/functions.js"></script>
+			<script src="data/playerLogs/peter.js"></script>
+			<script>
+				var neuralNetwork = new NeuralNetwork();
+
+				console.group('Training');
+					var trainData = neuralNetwork.collectTrainData(peterLog);
+					neuralNetwork
+						.createTrainableNet()
+						.training(trainData, 100, 0.3);
+				console.groupEnd();
+
+				neuralNetwork.downloadNetwork();
 			</script>
 			-->
 	</body>
