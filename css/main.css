@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Geo');
 
 @font-face {
-    font-family: 'VectorBattle';
-    src: url('../fonts/vector-battle/Vectorb.ttf');
+	font-family: 'VectorBattle';
+	src: url('../fonts/vector-battle/Vectorb.ttf');
 }
 
 html, body {
@@ -11,4 +11,162 @@ html, body {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
+}
+
+.dark-layer {
+	font-family: 'Geo', cursive;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: calc(100% - 128px);
+	height: 100%;
+	background-color: rgba(15, 15, 15, .9);
+
+	color: #FFF;
+	padding: 64px;	
+}
+
+#introduction-layer > p {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+	.introduction-layer__greeting {
+		font-size: 72px;
+		line-height: 96px;
+	}
+
+	.introduction-layer__introduction {
+		font-size: 48px;
+		line-height: 48px;
+		margin-left: 36px;
+	}
+
+	.introduction-layer__question {
+		font-size: 32px;
+		line-height: 32px;	
+		margin-left: 36px;		
+		padding-top: 30px;	
+	}
+
+.button-place {
+	text-align: center;
+	margin-top: 25px;
+}
+
+.button {
+	width: 200px;
+	height: 55px;
+	font-family: 'Geo', cursive;
+	font-size: 29px;
+	line-height: 25px;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
+	padding-top: 5px;
+}
+
+	.button-place .button {
+		margin-right: 5%;
+	}
+
+	.button-place .button:last-of-type {
+		margin-right: 0;
+	}
+
+	@media screen and (max-width: 820px) {
+		.dark-layer {
+			padding: 24px 36px;
+			width: calc(100% - 72px);
+		}
+
+		.introduction-layer__greeting {
+			font-size: 72px;
+			line-height: 96px;
+		}
+
+		.introduction-layer__introduction {
+			font-size: 42px;
+			line-height: 42px;
+			margin-left: 24px;
+		}
+
+		.introduction-layer__question {
+			font-size: 24px;
+			line-height: 24px;	
+			margin-left: 24px;		
+			padding-top: 16px;	
+		}
+
+		.button {
+			height: 45px;
+			font-size: 24px;
+			line-height: 19px;
+			width: 165px;
+		}
+	}
+
+.button--blue {
+	background-color: #2b7cb1;
+}
+.button--blue:hover {
+	background-color:#03a9f4;
+}
+
+.button--pink {
+	background-color: #af7f88;
+}
+.button--pink:hover {
+	background-color: #e0a0ac;
+}
+
+.button--green {
+	background-color: #408841;
+}
+.button--green:hover {
+	background-color: #4caf50;
+}
+
+.button--grey {
+	background-color: #888;
+}
+.button--grey:hover {
+	background-color: #bbb;
+}
+
+
+
+#howtoplay-layer {
+	display: none;
+	font-size: 26px;
+	line-height: 50px;
+	padding-top: 75px;
+}
+
+.howtoplay-layer__keyboard {
+	width: 36px;
+	height: 36px;
+	background: #777;
+	color: #FFF;
+
+	font-size: 30px;
+	line-height: 36px;
+	text-align: center;
+
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.howtoplay-layer__per {
+	font-size: 36px;
+	margin: 0 5px 0 -5px;
+}
+
+.howtoplay-layer__start {
+	font-size: 36px;
+	line-height: 45px;
+	padding-top: 0;
+	display: block;
+	margin: 50px auto 0 auto;
 }

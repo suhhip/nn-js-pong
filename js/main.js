@@ -1,3 +1,42 @@
+var introductionLayer   = document.getElementById('introduction-layer');
+var howtoplayLayer      = document.getElementById('howtoplay-layer');
+
+var buttons = document.querySelectorAll('#introduction-layer .button-place .button');
+for (var i = 0; i < buttons.length; ++i) {
+  buttons[i].addEventListener('click', function() {
+    var player = this.dataset.player;
+
+    demoPlayers.peter.remove();
+    demoPlayers.judit.remove();
+
+    introductionLayer.remove();
+    howtoplayLayer.style.display = 'block';
+
+    gamePlay.resetGame();
+
+    if (player === 'another') {
+      return;
+    }
+
+    var nnPlayer = neuralNetworks[player];
+
+    new NerualNetworkPlayer(gamePlay, nnPlayer, {
+      player        : 2,
+      upKeyCode     : 38,
+      downKeyCode   : 40,
+      limit         : 0.2,
+    });
+  });
+}
+
+document.getElementById('start-game').onclick = function () {
+  document.getElementById('layers').remove();
+
+  gamePlay.resetGame();
+  gamePlay.startBall();
+};
+
+
 // 38 - Arrow UP
 // 40 - Arrow DOWN
 // 65 - A

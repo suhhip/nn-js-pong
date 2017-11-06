@@ -29,6 +29,31 @@
 	<body>
 		<div id="pong-table"></div>
 
+		<div id="layers" class="dark-layer">
+			<div id="introduction-layer">
+				<p class="introduction-layer__greeting">hi.</p>
+				<p class="introduction-layer__introduction">i'm Peter Suhajda</p>
+				<p class="introduction-layer__question">do yo wanna play Pong with the digital self of me or my girlfriend?</p>
+
+				<div class="button-place">
+					<div class="button button--blue" data-player="peter">play with<br/>Peter</div>
+					<div class="button button--pink" data-player="judit">play with<br/>Judit</div>
+					<div class="button button--green" data-player="another">play with<br/>another person</div>
+				</div>
+			</div>
+
+			<div id="howtoplay-layer">
+				MOVE UP :
+					<div class="howtoplay-layer__keyboard">A</div><br/>
+				MOVE DOWN : 
+					<div class="howtoplay-layer__keyboard">Y</div>
+					<span class="howtoplay-layer__per">/</span>
+					<div class="howtoplay-layer__keyboard">Z</div>
+
+				<div id="start-game" class="button button--grey howtoplay-layer__start">Play!</div>
+			</div>
+		</div>
+
 		<script src="js/main.js"></script>
 
 		<!--- Collecting trainer set example --->
