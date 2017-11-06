@@ -1,0 +1,15 @@
+@-webkit-keyframes blinker {
+  from { opacity: 1.0; }
+  to { opacity: 0.0; }
+}
+
+.ball {
+	border: 5px solid #FFF;
+	position: absolute;
+	width: 0;
+	height: 0;
+}
+
+.ball--blinking {
+	animation: blinker .3s linear infinite;
+}
