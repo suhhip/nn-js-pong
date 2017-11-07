@@ -8,36 +8,10 @@ var NerualNetworkPlayer = function (GamePlay, NeuralNetwork, args) {
     clearInterval(keeper);
     keeper = null;
   };
+  
+  var keyUp     = new KeyboardTrigger(args.upKeyCode);
+  var keyDown   = new KeyboardTrigger(args.downKeyCode);
 
-  function Controller(upKeyCode, downKeyCode) {
-    function keyAction(action, keyCode) {
-      var key = new KeyboardEvent(action, { keyCode: keyCode, which: keyCode });
-
-      Object.defineProperty(key, 'keyCode', { value: keyCode });
-      Object.defineProperty(key, 'which', { value: keyCode });
-      Object.defineProperty(key, 'keyCode', { value: keyCode });
-      Object.defineProperty(key, 'which', { value: keyCode });
-
-      return key;
-    }
-
-    var upD     = keyAction('keydown', upKeyCode);
-    var upU     = keyAction('keyup', upKeyCode);      
-    var downD   = keyAction('keydown', downKeyCode);
-    var downU   = keyAction('keyup', downKeyCode);
-
-    this.up = function () {
-      window.dispatchEvent(upD);
-      window.dispatchEvent(upU);
-    };
-
-    this.down = function () {
-      window.dispatchEvent(downD);
-      window.dispatchEvent(downU);
-    };
-  }
-
-  var nnController = new Controller(args.upKeyCode, args.downKeyCode);
   var input, reaction;
   var moveX, posX;
 
@@ -63,10 +37,10 @@ var NerualNetworkPlayer = function (GamePlay, NeuralNetwork, args) {
     reaction = this.neuralNetwork.net.forward(input).w[0];
 
     if (reaction > args.limit) {
-      nnController.up();
+      keyUp.fire();
     }
     else if (reaction < (- args.limit)) {
-      nnController.down();
+      keyDown.fire();
     }
   }.bind(this), 5);
 }
