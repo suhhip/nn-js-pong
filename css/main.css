@@ -117,6 +117,7 @@ html, body {
 		.dark-layer {
 			padding: 24px 36px;
 			width: calc(100% - 72px);
+			height: calc(100% - 48px);
 		}
 
 		.introduction-layer__greeting {
