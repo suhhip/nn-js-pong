@@ -17,6 +17,9 @@ for (var i = 0; i < buttons.length; ++i) {
     if (player === 'another') {
       return;
     }
+    
+    document.querySelectorAll('.controller-button--right')[0].remove();
+    document.querySelectorAll('.controller-button--right')[0].remove();
 
     var nnPlayer = neuralNetworks[player];
 
@@ -90,3 +93,29 @@ demoPlayers.judit = new NerualNetworkPlayer(gamePlay, neuralNetworks.judit, {
 });
 
 gamePlay.startGame();
+
+// Mobile controllers
+function addControllerActions(element, keyCode) {
+	var trigger = new KeyboardTrigger(keyCode);
+
+	cElement.addEventListener('touchstart', function () {
+		trigger.fireDown();
+	}, false);
+	cElement.addEventListener('touchend', function () {
+		trigger.fireUp();
+	}, false);
+}
+
+var cElement;
+
+cElement = document.querySelector('.controller-button--top.controller-button--left');
+addControllerActions(cElement, 65);
+
+cElement = document.querySelector('.controller-button--bottom.controller-button--left');
+addControllerActions(cElement, 89);
+
+cElement = document.querySelector('.controller-button--top.controller-button--right');
+addControllerActions(cElement, 38);
+
+cElement = document.querySelector('.controller-button--bottom.controller-button--right');
+addControllerActions(cElement, 40);

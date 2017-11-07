@@ -14,7 +14,15 @@ function KeyboardTrigger(keyCode) {
   var keyUp     = keyAction('keyup', keyCode);
 
   this.fire = function () {
+	  this.fireDown();
+	  this.fireUp();
+  };
+  
+  this.fireDown = function () {
     window.dispatchEvent(keyDown);
+  };
+  
+  this.fireUp = function () {
     window.dispatchEvent(keyUp);
   };
 }

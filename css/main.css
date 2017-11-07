@@ -208,3 +208,47 @@ html, body {
 	display: block;
 	margin: 50px auto 0 auto;
 }
+
+#mobile-controllers {
+	z-index: 10;
+	display: none;
+}
+
+@media screen and (max-height: 400px) {
+	#mobile-controllers {
+		display: block;
+	}
+}
+
+.controller-button {
+	font-family: 'VectorBattle';
+	transform: rotate(90deg);
+	font-size: 24px;
+	color: #000;
+	background-color: #FFF;
+	height: 50px;
+	line-height: 50px;
+	position: absolute;
+	font-weight: bold;
+	border: 2px solid #777;
+	border-radius: 100%;
+	opacity: .85;
+}
+
+	.controller-button--top {
+		top: 25px;
+		width: 39px;
+		padding-left: 10px;
+	}
+	.controller-button--bottom {
+		bottom: 25px;
+		width: 29px;
+		padding-left: 21px;
+	}
+	
+	.controller-button--left {
+		left: 50px;
+	}
+	.controller-button--right {
+		right: 50px;
+	}
