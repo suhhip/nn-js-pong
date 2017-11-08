@@ -18,6 +18,7 @@ for (var i = 0; i < buttons.length; ++i) {
       return;
     }
     
+    document.getElementById('howtoplay-layer--player-2').remove();
     document.querySelectorAll('.controller-button--right')[0].remove();
     document.querySelectorAll('.controller-button--right')[0].remove();
 

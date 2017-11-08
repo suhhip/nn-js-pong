@@ -196,6 +196,10 @@ html, body {
 	display: inline-block;
 	margin-right: 10px;
 }
+	.howtoplay-layer__keyboard--arrow {
+		line-height: 40px;
+		font-size: 24px;
+	}
 
 .howtoplay-layer__per {
 	font-size: 36px;
@@ -209,6 +213,12 @@ html, body {
 	display: block;
 	margin: 50px auto 0 auto;
 }
+
+.howtoplay-layer--player {
+	width: 49%;
+	display: inline-block;
+}
+
 
 #mobile-controllers {
 	z-index: 10;
