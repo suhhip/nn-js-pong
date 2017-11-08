@@ -1,7 +1,15 @@
-var Controller = function (movedElement, upKeyCode, downKeyCode) {
-  this.movedElement  = movedElement;
-  this.upKeyCode     = upKeyCode;
-  this.downKeyCode   = downKeyCode;
+var Controller = function (movedElement, upKeyCodes, downKeyCodes) {
+  this.movedElement = movedElement;
+  
+  if (!Array.isArray(upKeyCodes)) {
+	  upKeyCodes = [upKeyCodes];
+  }
+  if (!Array.isArray(downKeyCodes)) {
+	  downKeyCodes = [downKeyCodes];
+  }
+  
+  this.upKeyCodes     = upKeyCodes;
+  this.downKeyCodes   = downKeyCodes;
 
   // init moved element properties
   this.movedElement.direction       = null;
@@ -21,20 +29,19 @@ var Controller = function (movedElement, upKeyCode, downKeyCode) {
 
     e = e || window.event;
 
-    if (e.keyCode !== this.upKeyCode && e.keyCode !== this.downKeyCode) {
-      return;
-    }
-
-    this.movedElement.lastMoveStart = Date.now();
-
-    if (e.keyCode === this.upKeyCode) {
+    if (this.upKeyCodes.indexOf(e.keyCode) !== -1) {
       this.movedElement.direction = 'up';
       var moveStep = (- config.controller.moveSize);
     }
-    else if (e.keyCode === this.downKeyCode) {
+    else if (this.downKeyCodes.indexOf(e.keyCode) !== -1) {
       this.movedElement.direction = 'down';
       var moveStep = config.controller.moveSize;
     }
+    else {
+	    return;
+    }
+
+    this.movedElement.lastMoveStart = Date.now();
 
     this.movedElement.move(moveStep);
     storage.move = setInterval(function () {
@@ -45,7 +52,7 @@ var Controller = function (movedElement, upKeyCode, downKeyCode) {
   function checkOnUp (e) {
     e = e || window.event;
 
-    if (e.keyCode === this.upKeyCode || e.keyCode == this.downKeyCode) {
+    if (this.upKeyCodes.indexOf(e.keyCode) !== -1 || this.downKeyCodes.indexOf(e.keyCode) !== -1) {
       clearInterval(storage.move);
       storage.move = null;
 

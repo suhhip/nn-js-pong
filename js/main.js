@@ -43,7 +43,7 @@ document.getElementById('start-game').onclick = function () {
 // 38 - Arrow UP
 // 40 - Arrow DOWN
 // 65 - A
-// 89 - Y
+// 89 - Y ; 90 - Z
 
 var table   = new Table('#pong-table');
 var ball    = new Ball();
@@ -59,7 +59,7 @@ var players = {
 };
 
 var controllers = {
-  1: new Controller(players[1], 65, 89),
+  1: new Controller(players[1], 65, [89, 90]),
   2: new Controller(players[2], 38, 40),
 };
 
