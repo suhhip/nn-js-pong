@@ -1,0 +1,15 @@
+.paddle {
+	position: absolute;
+	width: 0.75%;
+	height: 14%;
+	background-color: #FFF;
+	transform: translateY(-50%);
+}
+
+.paddle--left {
+	left: 3%;
+}
+
+.paddle--right {
+	right: 3%;
+}

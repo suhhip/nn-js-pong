@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0" />
+		<meta property="og:title" content="Pong" />
+		<meta property="og:image" content="images/fb_image.png" />
+		<meta property="og:site_name" content="876.hu" />
+		<title>Pong</title>
+		
+		<link rel="shortcut icon" type="image/png" href="images/favicon.png" />
+		<link rel="stylesheet" href="css/main.css" />
+
+		<link rel="stylesheet" href="css/objects/table.css" />
+		<link rel="stylesheet" href="css/objects/ball.css" />
+		<link rel="stylesheet" href="css/objects/paddle.css" />
+		<link rel="stylesheet" href="css/objects/goalTable.css" />
+
+		<script src="data/config.js"></script>
+		<script src="js/libs/convnet-min.js"></script>
+
+		<script src="js/objects/table.js"></script>
+		<script src="js/objects/goalTable.js"></script>
+		<script src="js/objects/ball.js"></script>
+		<script src="js/objects/paddle.js"></script>
+
+		<script src="js/controller.js"></script>
+		<script src="js/gameplay.js"></script>
+		<script src="js/neuralNetwork.js"></script>
+		
+		<script src="js/keyboardTrigger.js"></script>
+		<script src="js/neuralNetworkPlayer.js"></script>
+
+		<script src="data/neuralNetworks/peter.js"></script>
+		<script src="data/neuralNetworks/judit.js"></script>
+	</head>
+	<body>
+		<div id="pong-table"></div>
+		<div id="mobile-controllers">
+			<div class="controller-button controller-button--top controller-button--left"><</div>
+			<div class="controller-button controller-button--bottom controller-button--left">></div>
+			
+			<div class="controller-button controller-button--top controller-button--right"><</div>
+			<div class="controller-button controller-button--bottom controller-button--right">></div>
+		</div>
+
+		<div id="layers" class="dark-layer">
+			<div id="introduction-layer">
+				<p class="introduction-layer__greeting">hi.</p>
+				<p class="introduction-layer__introduction">i'm Peter Suhajda</p>
+				<p class="introduction-layer__question">do yo wanna play Pong with the digital self of me or my girlfriend?</p>
+
+				<div class="button-place">
+					<div class="button button--blue" data-player="peter">play with<br/>Peter</div>
+					<div class="button button--pink" data-player="judit">play with<br/>Judit</div>
+					<div class="button button--green" data-player="another">play with<br/>another person</div>
+				</div>
+			</div>
+
+			<div id="howtoplay-layer">
+				<div id="howtoplay-layer--player-1" class="howtoplay-layer--player">
+					MOVE UP :
+						<div class="howtoplay-layer__keyboard">A</div><br/>
+					MOVE DOWN : 
+						<div class="howtoplay-layer__keyboard">Z</div>
+						<span class="howtoplay-layer__per">/</span>
+						<div class="howtoplay-layer__keyboard">Y</div>
+				</div>
+					
+				<div id="howtoplay-layer--player-2" class="howtoplay-layer--player">
+					MOVE UP :
+						<div class="howtoplay-layer__keyboard howtoplay-layer__keyboard--arrow">&#8679;</div><br/>
+					MOVE DOWN : 
+						<div class="howtoplay-layer__keyboard howtoplay-layer__keyboard--arrow">&#8681;</div>
+				</div>
+
+				<div id="start-game" class="button button--grey howtoplay-layer__start">Play!</div>
+			</div>
+			
+
+			<a
+				class="info"
+				href="info.html"
+				onclick="window.open(this.href, 'targetWindow', 'width=500,height=300,top=100,left=200');return false;">
+				?
+				<span class="info-text">info</span>
+			</a>
+			
+			<a class="github" href="https://github.com/suhhip/nn-js-pong" target="_blank">
+				view on github
+			</a>
+		</div>
+
+		<script src="js/main.js"></script>
+
+		<!--- Collecting trainer set example --->
+			<!--
+			<script src="js/functions.js"></script>
+			<script src="js/logger.js"></script>
+			<script>
+				var player1Logger = new Logger(controllers[1], ball, 'left');
+				var player2Logger = new Logger(controllers[2], ball, 'right');
+
+				function downloadLog() {
+					player1Logger.download('player_1_log.js');
+					player2Logger.download('player_2_log.js');
+				}
+			</script>
+			-->
+		
+		<!--- Training example --->
+			<!--
+			<script src="js/functions.js"></script>
+			<script src="data/playerLogs/peter.js"></script>
+			<script>
+				var neuralNetwork = new NeuralNetwork();
+
+				console.group('Training');
+					var trainData = neuralNetwork.collectTrainData(peterLog);
+					neuralNetwork
+						.createTrainableNet()
+						.training(trainData, 100, 0.3);
+				console.groupEnd();
+
+				neuralNetwork.downloadNetwork();
+			</script>
+			-->
+	</body>
+</html>

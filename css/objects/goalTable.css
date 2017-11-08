@@ -1,0 +1,18 @@
+.goal-table {
+	color: #FFF;
+	position: absolute;
+	top: 10%;
+	transform: translateX(-50%);
+	line-height: 0;
+
+	font-family: 'VectorBattle', cursive;
+	font-weight: 900;
+	font-size: 64px;
+}
+
+.goal-table:nth-child(1) {
+	left: 30%;
+}
+.goal-table:nth-child(2) {
+	left: 70%;
+}
